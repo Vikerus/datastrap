@@ -1,4 +1,4 @@
 datastrap
 =========
 
-Customized Bootstrap Experince, With Index.
+Customized Bootstrap Experience, With Index.
