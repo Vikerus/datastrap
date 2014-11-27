@@ -1,0 +1,997 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="assets/img/favicon.png">
+
+    <title>DataStrap - Bootstrap powered database</title>
+
+    <!-- Bootstrap -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+	<link href="assets/css/bootstrap-theme.css" rel="stylesheet">
+	<link href="assets/css/tabzilla.css" rel="stylesheet" />
+	<link rel="alternate" hreflang="en-US" href="http://www.mozilla.org/en-US/firefox/new/" title="English (US)">
+<link rel="alternate" hreflang="fr" href="http://www.mozilla.org/fr/firefox/new/" title="Français">
+
+        <!-- Custom styles for this template -->
+    <link href="assets/css/webstyle.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+	<link href="assets/css/main.css" rel="stylesheet">
+    
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+	
+	<!-- These two javascripts' below are needed for the form to work!
+		 Extended Use: These are Required. -->
+		 
+		<script src="js/tabzilla.js"></script>
+		
+		<script src="assets/js/jquery.js"></script>
+		<script src="assets/js/jquery.nicescroll.min.js"></script>
+		<script src="assets/js/jquery.scrollTo.min.js"></script>
+		<script type="text/javascript" src="assets/js/jquery.nicescroll.js" ></script>
+		<script>
+$(document).ready(function(){
+<!-- IF MBRN_SCROLL_CUSTOM == null || MBRN_SCROLL_CUSTOM -->
+  // jQuery Nicescroll 
+  if( jQuery().niceScroll ) {
+  	var params = { <!-- IF not MBRN_SCROLL_SMOOTH && MBRN_SCROLL_SMOOTH != null -->scrollspeed:2000,mousescrollstep:8*4,smoothscroll:false <!-- ENDIF --> };
+    $("html").niceScroll(params);
+  }
+<!-- ENDIF -->
+});
+</script>
+		<style type="text/css">
+#boxscroll {
+	 width: auto;
+
+	 background-color: #ffffff;
+padding: 0px;
+background-repeat: repeat-x;
+border-color: #DCDCDC;
+box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.05) inset, 0px 1px 0px rgba(255, 255, 255, 0.1);
+border: 1px solid #E3E3E3;
+max-width:auto;
+height: 440px;
+overflow: auto;
+  margin-bottom:1px;
+  background: #e3e3e3; /* Old browsers */
+/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMTAwJSIgeDI9IjEwMCUiIHkyPSIwJSI+CiAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjZTNlM2UzIiBzdG9wLW9wYWNpdHk9IjEiLz4KICAgIDxzdG9wIG9mZnNldD0iNDclIiBzdG9wLWNvbG9yPSIjZWFlYWVhIiBzdG9wLW9wYWNpdHk9IjEiLz4KICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2YyZjJmMiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgPC9saW5lYXJHcmFkaWVudD4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPgo8L3N2Zz4=);
+background: -moz-linear-gradient(45deg, #e3e3e3 0%, #eaeaea 47%, #f2f2f2 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,#e3e3e3), color-stop(47%,#eaeaea), color-stop(100%,#f2f2f2)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(45deg, #e3e3e3 0%,#eaeaea 47%,#f2f2f2 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(45deg, #e3e3e3 0%,#eaeaea 47%,#f2f2f2 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(45deg, #e3e3e3 0%,#eaeaea 47%,#f2f2f2 100%); /* IE10+ */
+background: linear-gradient(45deg, #e3e3e3 0%,#eaeaea 47%,#f2f2f2 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e3e3e3', endColorstr='#f2f2f2',GradientType=1 ); /* IE6-8 fallback on horizontal gradient */
+
+}
+#boxscroll2 {
+	padding: 40px;
+	height: 120px;
+	width: 730px;
+	border: 2px solid #F00;
+	overflow: auto;
+}
+#boxscroll4 {
+	height: 300px;
+	margin-top: 40px;
+	background-color: #00FF66;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 18px;
+	padding: 20px;
+	color: #006633;
+	overflow: auto;
+}
+</style>
+<script>
+$(function () {
+  var nua = navigator.userAgent
+  var isAndroid = (nua.indexOf('Mozilla/5.0') > -1 && nua.indexOf('Android ') > -1 && nua.indexOf('AppleWebKit') > -1 && nua.indexOf('Chrome') === -1)
+  if (isAndroid) {
+    $('select.form-control').removeClass('form-control').css('width', '100%')
+  }
+})
+</script>
+		
+		<script async="" src="//www.google-analytics.com/analytics.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/lineicons/style.css" /> 
+	<link href="assets/css/styleacc.css" rel="stylesheet" type="text/css" />
+	<style>
+.panel-heading span {
+    margin-top: -20px;
+    font-size: 15px;
+}    
+</style>
+		
+  </head>
+
+  <body>
+  
+    <!-- Fixed navbar -->
+
+<nav class="navbar navbar-trans navbar-fixed-top" role="navigation" style="height: 34px ! important; margin:0px;">
+  <div class="container" style="height: 34px ! important; width:auto !important;">
+    <div class="navbar-header" style="height: 34px ! important;">
+	
+	          <a href="#" style="margin:0px;" class="navbar-btn btn btn-default btn-plus dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-home" style="color:#dd1111;"></i> Home <small><i class="glyphicon glyphicon-chevron-down"></i></small></a>
+          <ul class="nav dropdown-menu" style="margin:0px;">
+              <li><a href="#"><i class="glyphicon glyphicon-user" style="color:#1111dd;"></i> Profile</a></li>
+              <li><a href="#"><i class="glyphicon glyphicon-dashboard" style="color:#0000aa;"></i> Dashboard</a></li>
+              <li><a href="#"><i class="glyphicon glyphicon-inbox" style="color:#11dd11;"></i> Pages</a></li>
+              <li class="nav-divider"></li>
+              <li><a href="#"><i class="glyphicon glyphicon-cog" style="color:#dd1111;"></i> Settings</a></li>
+              <li><a href="#"><i class="glyphicon glyphicon-plus"></i> More..</a></li>
+          </ul>
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapsible">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/sub/">						
+	  <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" style="margin-left:0px  !important; margin-top:-15px !important;">				
+					  <!-- slides -->
+					  <div class="carousel-inner">
+						<div class="item active">
+						  <img src="images/datastrap.png" alt="">
+						</div>
+						<div class="item">
+						  <img src="images/datastrapgrn.png" alt="">
+						</div>
+						<div class="item">
+						  <img src="images/datastrappurp.png" alt="">
+						</div>
+						<div class="item">
+						  <img src="images/datastrapred.png" alt="">
+						</div>
+						<div class="item">
+						  <img src="images/datastraporng.png" alt="">
+						</div>
+						<div class="item">
+						  <img src="images/datastrapylw.png" alt="">
+						</div>
+						<div class="item">
+						  <img src="images/datastrapblu.png" alt="">
+						</div>
+						<div class="item">
+						  <img src="images/datastrapwht.png" alt="">
+						</div>
+						<div class="item">
+						  <img src="images/datastraprvs.png" alt="">
+						</div>
+						<div class="item">
+						  <img src="images/datastrapblk.png" alt="">
+						</div>
+						<div class="item">
+						  <img src="images/datastrapdrg.png" alt="">
+						</div>
+					  </div>
+					</div></a>
+	                <div class="sidebar-toggle-box">
+                  <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+              </div>
+    </div>
+		  	  <a href="#" id="tabzilla" data-infobar="translation" style="z-index:1000 !important;">brand</a>
+
+    <div class="navbar-collapse collapse" id="navbar-collapsible" style="height: 34px ! important;">
+      <form class="navbar-form" style="margin:0px;">
+        <div class="form-group" style="display:inline;">
+          <div class="input-group"> 
+            <div class="input-group-btn">
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-chevron-down"></span></button>
+              <ul class="dropdown-menu">
+                <li><a href="#">Category 1</a></li>
+                <li><a href="#">Category 2</a></li>
+                <li><a href="#">Category 3</a></li>
+                <li><a href="#">Category 4</a></li>
+                <li><a href="#">Category 5</a></li> 
+              </ul>
+            </div>
+                <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term" style="">
+                <div class="input-group-btn">
+                  <button class="btn btn-default btn-primary" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                </div>
+          </div>
+        </div>
+      </form>
+
+    </div>
+
+  </div>
+
+</nav>
+
+	<div id="header">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6" style="margin-top:-4px;">
+					
+					<span class="form-inline" ><h2 class="subtitle" style="margin-top:-1px !important;"><h1 style="margin-top:10px !important; margin-bottom:-15px !important; ">DataStrap</h1>Powerful impact.</h2></span>
+					
+					<!-- This <form> reloads the page using entered values as the variables that make the script function.
+						 Extended Use: The action="", method="". and name="" are Required as is shown below! -->
+						 
+					<form class="form-inline signup" action="//register.php" method="post" name="registration_form">
+					  <div class="form-group">
+					  
+					<!-- Here we have the <input> for email collection.
+						 Extended Use: The type="". id="", and name="" are Required as is shown below! -->
+						 
+					    <input type="text" class="form-control" id="email" name="email" placeholder="Enter your email address" />
+					  </div>
+					  
+					<!-- This is the <input> which allows Javascript to verify there is an email to submit.
+						 Extended Use: The type="", value="", and onclick="" are Required as is shown below! -->
+						 
+				   <input class="btn btn-theme" type="submit" 
+                   value="Register">
+					</form>					
+				</div>
+							<div class="col-lg-4 col-lg-offset-2" style="">
+					<div id="carousel-example-generic" class="carousel slide" data-ride="carousel" style="margin-left:0px  !important;  width:100% !important;">
+					  <ol class="carousel-indicators" style="margin-left:-50%  !important;  width:100% !important;">
+						<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+						<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+						<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+					  </ol>					
+					  <!-- slides -->
+					  <div class="carousel-inner">
+						<div class="item active">
+						  <img src="http://placehold.it/2300x160" alt="">
+						</div>
+						<div class="item">
+						  <img src="http://placehold.it/2300x160" alt="">
+						</div>
+						<div class="item">
+						  <img src="http://placehold.it/2300x160" alt="">
+						</div>
+					  </div>
+					</div>		
+				</div>				
+				
+			</div>
+
+		</div>
+	</div>
+	    <!-- Dev -->
+    <section id="promo" class="promo section offset-header">
+        <div class="social-media">
+            <div class="social-media-inner container text-center">
+                <ul class="list-inline">
+                    <li class="twitter-follow"><a href="https://twitter.com/3rdwave_themes" class="twitter-follow-button" data-show-count="false">Follow @3rdwave_themes</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+                    </li><!--//twitter-follow-->
+                    <li class="twitter-tweet">
+                        <a href="https://twitter.com/share" class="twitter-share-button" data-via="3rdwave_themes" data-hashtags="bootstrap">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+                    </li><!--//twitter-tweet-->
+                    <li class="facebook-like">
+                         <div class="fb-like" data-href="http://themes.3rdwavemedia.com/" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
+                    </li><!--//facebook-like-->
+                    <!--// Generate github buttons: https://github.com/mdo/github-buttons -->
+                    <li class="github-star"><iframe src="http://ghbtns.com/github-btn.html?user=mdo&repo=github-buttons&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe></li>
+                    <li class="github-fork"><iframe src="http://ghbtns.com/github-btn.html?user=mdo&repo=github-buttons&type=fork" allowtransparency="true" frameborder="0" scrolling="0" width="53" height="20"></iframe></li>
+                    <!--//
+                    <li class="github-follow"><iframe src="http://ghbtns.com/github-btn.html?user=mdo&type=follow&count=true"
+  allowtransparency="true" frameborder="0" scrolling="0" width="165" height="20"></iframe></li>
+                    -->
+
+				</ul>
+				
+            </div>
+        </div>
+    </section><!--dev-->
+						
+
+	  <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" style="margin:0px !important;">				
+					  <!-- slides -->
+					  <div class="carousel-inner" style="position:absolute !important; z-index:0 !important; max-height:963px; min-height:963px">
+						<div class="item active" >
+						  <img style="width:100% !important; height:100% !important; " src="images/bg-1.JPG" alt="">
+						</div>
+						<div  class="item">
+						  <img style="width:100% !important; height:100% !important; " src="images/bg-2.jpg" alt="">
+						</div>
+						<div class="item">
+						  <img style="width:108% !important; height:963px !important; " src="images/bg-3.JPG" alt="">
+						</div>
+						<div class="item">
+						  <img style="width:100% !important; height:100% !important; " src="images/bg-4.JPG" alt="">
+						</div>
+						<div class="item">
+						  <img style="width:100% !important; height:100% !important; " src="images/bg-5.jpg" alt="">
+						</div>
+						<div class="item">
+						  <img style="width:100% !important; height:100% !important;" src="images/bg-6.JPG" alt="">
+						</div>
+						<div class="item">
+						  <img style="width:100% !important; height:100% !important; " src="images/bg-7.JPG" alt="">
+						</div>
+						<div class="item">
+						  <img style="width:100% !important; height:100% !important;" src="images/bg-8.JPG" alt="">
+						</div>
+						<div class="item">
+						  <img style="width:100% !important; height:100% !important;" src="images/bg-9.JPG" alt="">
+						</div>
+						<div class="item">
+						  <img style="width:100% !important; height:100% !important; " src="images/bg-10.JPG" alt="">
+						</div>
+						<div class="item">
+						  <img style="width:100% !important; height:100% !important;" src="images/bg-11.jpeg" alt="">
+						</div>
+						<div class="item">
+						  <img style="width:100% !important; height:100% !important;" src="images/bg-12.jpg" alt="">
+						</div>
+						<div class="item">
+						  <img style="width:100% !important; height:100% !important;" src="images/bg-13.jpg" alt="">
+						</div>
+						<div class="item">
+						  <img style="width:100% !important; height:100% !important; " src="images/bg-14.jpg" alt="">
+						</div>
+												<div class="item">
+						  <img style="width:100% !important; height:100% !important; " src="images/bg-15.jpg" alt="">
+						</div>
+												<div class="item">
+						  <img style="width:100% !important; height:100% !important; " src="images/bg-16.JPG" alt="">
+						</div>
+												<div class="item">
+						  <img style="width:100% !important; height:100% !important; " src="images/bg-17.jpg" alt="">
+						</div>
+												<div class="item">
+						  <img style="width:100% !important; height:100% !important; " src="/images/bg-18.JPG" alt="">
+						</div>
+					  	</div>
+	
+<div class="container" style="height: auto !important; margin-bottom: -17px !important;" >
+		   <div class="panel panel-default" style="z-index: 1000 ! important; position: relative;">
+				<div class="panel-heading">
+					<h3 class="panel-title"></h3>
+					<span class="pull-right clickable" style="top: 11px !important;"><i class="glyphicon glyphicon-chevron-up" style="top: 11px !important;"></i></span>
+				</div>
+  <!--left-->
+  <div style=" padding: 0px ! important;" class="col-sm-3">
+    	<div class="panel panel-default">
+         	<div class="panel-heading">			<h3 style="margin-top:5px !important;">
+			<div class="dropdown">
+								<a href="#" class="dropdown-toggle account" data-toggle="dropdown">
+									<div class="avatar">
+										<img src="images/icon.png" class="img-rounded" alt="avatar">
+									</div>
+									<i class="fa fa-angle-down pull-right"></i>
+									<div class="user-mini pull-right" style="margin-top:-10px;">
+										<span class="welcome" style="font-size:14px;">Welcome,</span>
+										<span style="font-size:14px;" >User</span>
+									</div>
+								</a>
+								<ul class="dropdown-menu">
+									<li>
+										<a href="#">
+											<i class="fa fa-user"></i>
+											<span>Profile</span>
+										</a>
+									</li>
+									<li>
+										<a href="ajax/page_messages.html" class="ajax-link">
+											<i class="fa fa-envelope"></i>
+											<span>Messages</span>
+										</a>
+									</li>
+									<li>
+										<a href="ajax/gallery_simple.html" class="ajax-link">
+											<i class="fa fa-picture-o"></i>
+											<span>Albums</span>
+										</a>
+									</li>
+									<li>
+										<a href="ajax/calendar.html" class="ajax-link">
+											<i class="fa fa-tasks"></i>
+											<span>Tasks</span>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<i class="fa fa-cog"></i>
+											<span>Settings</span>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<i class="fa fa-power-off"></i>
+											<span>Logout</span>
+										</a>
+									</li>
+								</ul>
+							</div>
+			</h3></div>
+         	<div class="panel-body">
+             			<h3 style="margin-top:5px !important;">
+			<div class="form-group">
+			<form class="form-horizontal" method="post" enctype="multipart/form-data" action="users/saveconvo.php">
+
+				<p>Enter an Email:</p>
+				<input class="form-control" type="text" name="email">
+				<label><p>Send Message:</p></label>
+				<textarea class="form-control" style="width:auto; padding-right:12px;" name="inboxmsg" rows="4" cols="30">1200 Character Limit</textarea>		
+				<input class="btn btn-success pull-right" type="submit" name="submit9" value="Submit"></form>
+				<ul class="list-inline"><li><a href="#"><i class="glyphicon glyphicon-align-left"></i></a></li><li><a href="#"><i class="glyphicon glyphicon-align-center"></i></a></li><li><a href="#"><i class="glyphicon glyphicon-align-right"></i></a></li></ul>
+            			
+								
+							</div>
+			</h3>
+				
+		</div>
+        </div>
+
+  </div><!--/left-->
+
+  <!--center-->
+    <div class="col-sm-7" style="padding: 0px ! important;">
+    	<div class="panel panel-default">
+         	<div class="panel-heading">World News Feeds <p class="pull-right"><button class="btn btn-default" style="padding:0px !important;">Read More</button></p></div>
+         	<div id="boxscroll" class="panel-body">	<!-- CSS3 Accordion / Copy from here -->
+		<div class="webaccordion">
+	<!--[if IE ]><ul class="accordion-ie"><![endif]-->
+	<!--[if !IE]>--><ul><!--<![endif]-->
+				<li>	
+					<a href="##" style="margin-left: 1px !important; background-image: linear-gradient(to bottom, #3C3C3C 0%, #222 100%);
+background-repeat: repeat-x;"><span style="margin-top: 6px !important;
+margin-left: 5px !important;">Wired</span></a>
+					<div style="width:inherit; margin-left:0px; ">
+
+					</div>
+				</li>
+				<li>
+					<a href="##" style="margin-left: 58px !important; background-image: linear-gradient(to bottom, #3C3C3C 0%, #222 100%);
+background-repeat: repeat-x;"><span style="margin-top: 6px !important;
+margin-left: 5px !important;">Alt</span></a>
+					<div style="width:inherit; margin-left:0px; ">
+					
+					</div>
+				</li>
+				<li>
+					<a href="##" style="margin-left: 114px !important; background-image: linear-gradient(to bottom, #3C3C3C 0%, #222 100%);
+background-repeat: repeat-x;"><span style="margin-top: 6px !important;
+margin-left: 5px !important;">Google</span></a>
+					<div style="width:inherit; margin-left:0px; ">
+
+					</div>
+				</li>
+				<li>
+					<a href="##" style="margin-left: 171px !important; background-image: linear-gradient(to bottom, #3C3C3C 0%, #222 100%);
+background-repeat: repeat-x;"><span style="margin-top: 6px !important;
+margin-left: 5px !important;">Main</span></a>
+					<div style="width:inherit; margin-left:0px; ">
+					</div>
+				</li>
+			</ul>
+		</div>
+	<!--CSS3 Accordion -->
+
+			</div>
+		</div>
+  </div>
+<!--/center-->
+
+  <!--right-->
+  <div style=" padding: 0px ! important;" class="col-sm-2">
+	<div class="sidebar-block panel panel-default">
+	  <div class="panel-heading">
+	    <form method="post" action="">
+              <div class="input-group">
+                <div class="input-group-btn">
+                <button class="btn btn-default">+1</button><button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-share"></i></button>
+                </div>
+                <input class="form-control" name="bulletmsg" placeholder="Add a comment.." type="text">
+              </div>
+          	  </form>
+	    <i class="collapse-button icon fa fa-chevron-circle-up float-right" data-toggle="collapse" data-target="#ColWidget" title="Toggle Panel"></i>
+	  </div>	 
+	    <div id="boxscroll" class="panel-body" style="padding:0px !important; height:420px !important; background:none !important;">
+	    <button class="btn btn-success" style="width:100% !important;" type="button" onclick="loadXMLDoc()">Load @comments</button>
+   	    <div id="myDiv" class="btn btn-primary disabled" style="width: 100%; font-weight:590 !important; font-size:13px !important; background-color:#00356B !important; padding:2px !important; line-height: 1.027 !important; display: !important; text-align:left !important; white-space: pre-wrap !important; overflow:hidden">
+	   </div>
+	  </div>
+	</div>
+  </div><!--/right-->
+</div><!--/container-fluid-->
+</div>
+<!--main-->
+	
+<div class="container" id="main">
+   <div class="row">				
+   <div class="panel panel-default" style="z-index: 1000 ! important; position: relative;">
+				<div class="panel-heading">
+					<h3 class="panel-title"></h3>
+					<span class="pull-right clickable" style="top: 11px !important;"><i class="glyphicon glyphicon-chevron-up" style="top: 11px !important;"></i></span>
+				</div>
+   <div class="col-md-4 col-sm-6">
+        <div class="well"> 
+			<h3>DataStrap: Image Uploader</h3>
+			<h4>Supported File Types: ".gif" ".jpeg", ".jpg", ".png"</h4>
+			<form action="upload_file.php" method="post" enctype="multipart/form-data">
+		<label for="file">Filename:</label>
+		<input type="file" name="file" id="file"><br>
+		<input class="btn btn-danger" type="submit" name="submit3" value="Submit">
+			</form>
+			
+        </div>
+
+	</div>
+  	<div class="col-md-4 col-sm-6">
+
+      	 <div class="panel panel-default">
+           <div class="panel-heading"><a href="#" class="pull-right">View all</a> <h4>Edit &amp; Code</h4></div>
+   			<div class="panel-body">
+              <p><img src="//placehold.it/150x150" class="img-circle pull-right"> <a href="#">The Bootstrap Playground</a></p>
+              <div class="clearfix"></div>
+              <hr>
+              Design your own reactive and modern website with Datastrap. A Customized Bootstrap experience. Subject to the terms of the Mozilla Public License, v. 2.0. 
+            </div>
+         </div>
+      
+  	</div>
+  	<div class="col-md-4 col-sm-6">
+        
+        <div class="panel panel-default">
+           <div class="panel-heading"><a href="#" class="pull-right">View all</a> <h4>Think Global</h4></div>
+   			<div class="panel-body">
+              <img src="//placehold.it/150x150" class="img-circle pull-right"> <a href="#">Keyword: Beauty</a>
+              <div class="clearfix"></div>
+              <hr>
+             
+			  </div>
+			  </div>
+		</div>
+	</div>
+</div>
+</div>
+					</div>
+
+	    <!-- Dev -->
+    <section id="promo" class="promo section offset-header" style="z-index: 1000; position: absolute; width:100%;">
+        <div class="social-media">
+            <div class="social-media-inner container text-center">
+                <ul class="list-inline">
+                    <li class="twitter-follow"><a href="https://twitter.com/3rdwave_themes" class="twitter-follow-button" data-show-count="false">Follow @3rdwave_themes</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+                    </li><!--//twitter-follow-->
+                    <li class="twitter-tweet">
+                        <a href="https://twitter.com/share" class="twitter-share-button" data-via="3rdwave_themes" data-hashtags="bootstrap">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+                    </li><!--//twitter-tweet-->
+                    <li class="facebook-like">
+                         <div class="fb-like" data-href="http://themes.3rdwavemedia.com/" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
+                    </li><!--//facebook-like-->
+                    <!--// Generate github buttons: https://github.com/mdo/github-buttons -->
+                    <li class="github-star"><iframe src="http://ghbtns.com/github-btn.html?user=mdo&repo=github-buttons&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe></li>
+                    <li class="github-fork"><iframe src="http://ghbtns.com/github-btn.html?user=mdo&repo=github-buttons&type=fork" allowtransparency="true" frameborder="0" scrolling="0" width="53" height="20"></iframe></li>
+                    <!--//
+                    <li class="github-follow"><iframe src="http://ghbtns.com/github-btn.html?user=mdo&type=follow&count=true"
+  allowtransparency="true" frameborder="0" scrolling="0" width="165" height="20"></iframe></li>
+                    -->
+
+				</ul>
+				
+            </div>
+        </div>
+    </section><!--dev-->
+
+        <div class="section" style="background-image: linear-gradient(to bottom, #F5F5F5 0%, #E8E8E8 100%);
+background-repeat: repeat-x; position:relative !important; z-index:100 !important;">
+	    	<div class="container">
+				<div class="row" style="position:relative;">
+					<div class="col-md-12">
+					
+						<div class="products-slider">
+							<!-- Products Slider Item -->
+							<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">				
+							<div class="shop-item">
+							
+								<!-- Product Image -->
+								<!-- slides -->
+					  <div class="carousel-inner">
+						<div class="item active">
+						  							<div class="shop-item" style="width: 100% ! important;">
+							
+								<!-- Product Image -->
+								<div class="image">
+									<a href="page-product-details.html"><img src="http://placehold.it/300" alt="Item Name"></a>
+								</div>
+								<!-- Product Title -->
+								<div class="title">
+									<h3><a href="page-product-details.html">Lorem ipsum dolor</a></h3>
+								</div>
+								<!-- Product Price -->
+								<div class="price">
+									$999.99
+								</div>
+								<!-- Buy Button -->
+								<div class="actions">
+									<a href="page-product-details.html" class="btn btn-primary"><i class="icon-shopping-cart icon-white"></i> Buy</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+						  							<div class="shop-item" style="width: 100% ! important;">
+							
+								<!-- Product Image -->
+								<div class="image">
+									<a href="page-product-details.html"><img src="http://placehold.it/300" alt="Item Name"></a>
+								</div>
+								<!-- Product Title -->
+								<div class="title">
+									<h3><a href="page-product-details.html">Lorem ipsum dolor</a></h3>
+								</div>
+								<!-- Product Price -->
+								<div class="price">
+									$999.99
+								</div>
+								<!-- Buy Button -->
+								<div class="actions">
+									<a href="page-product-details.html" class="btn btn-primary"><i class="icon-shopping-cart icon-white"></i> Buy</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+						  							<div class="shop-item" style="width: 100% ! important;">
+							
+								<!-- Product Image -->
+								<div class="image">
+									<a href="page-product-details.html"><img src="http://placehold.it/300" alt="Item Name"></a>
+								</div>
+								<!-- Product Title -->
+								<div class="title">
+									<h3><a href="page-product-details.html">Lorem ipsum dolor</a></h3>
+								</div>
+								<!-- Product Price -->
+								<div class="price">
+									$999.99
+								</div>
+								<!-- Buy Button -->
+								<div class="actions">
+									<a href="page-product-details.html" class="btn btn-primary"><i class="icon-shopping-cart icon-white"></i> Buy</a>
+								</div>
+							</div>
+						</div>
+							</div>
+						</div>	
+						</div>
+							<!-- End Products Slider Item -->
+<!-- Products Slider Item -->
+							<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">			
+							<div class="shop-item">
+							
+								<!-- Product Image -->
+								<!-- slides -->
+					  <div class="carousel-inner">
+						<div class="item active">
+						  							<div class="shop-item" style="width: 100% ! important;">
+							
+								<!-- Product Image -->
+								<div class="image">
+									<a href="page-product-details.html"><img src="http://placehold.it/300" alt="Item Name"></a>
+								</div>
+								<!-- Product Title -->
+								<div class="title">
+									<h3><a href="page-product-details.html">Lorem ipsum dolor</a></h3>
+								</div>
+								<!-- Product Price -->
+								<div class="price">
+									$999.99
+								</div>
+								<!-- Buy Button -->
+								<div class="actions">
+									<a href="page-product-details.html" class="btn btn-primary"><i class="icon-shopping-cart icon-white"></i> Buy</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+						  							<div class="shop-item" style="width: 100% ! important;">
+							
+								<!-- Product Image -->
+								<div class="image">
+									<a href="page-product-details.html"><img src="http://placehold.it/300" alt="Item Name"></a>
+								</div>
+								<!-- Product Title -->
+								<div class="title">
+									<h3><a href="page-product-details.html">Lorem ipsum dolor</a></h3>
+								</div>
+								<!-- Product Price -->
+								<div class="price">
+									$999.99
+								</div>
+								<!-- Buy Button -->
+								<div class="actions">
+									<a href="page-product-details.html" class="btn btn-primary"><i class="icon-shopping-cart icon-white"></i> Buy</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+						  							<div class="shop-item" style="width: 100% ! important;">
+							
+								<!-- Product Image -->
+								<div class="image">
+									<a href="page-product-details.html"><img src="http://placehold.it/300" alt="Item Name"></a>
+								</div>
+								<!-- Product Title -->
+								<div class="title">
+									<h3><a href="page-product-details.html">Lorem ipsum dolor</a></h3>
+								</div>
+								<!-- Product Price -->
+								<div class="price">
+									$999.99
+								</div>
+								<!-- Buy Button -->
+								<div class="actions">
+									<a href="page-product-details.html" class="btn btn-primary"><i class="icon-shopping-cart icon-white"></i> Buy</a>
+								</div>
+							</div>
+						</div>
+							</div>
+						</div>	
+						</div>
+							<!-- End Products Slider Item -->
+							<!-- Products Slider Item -->
+							<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">				
+							<div class="shop-item">
+							
+								<!-- Product Image -->
+								<!-- slides -->
+					  <div class="carousel-inner">
+						<div class="item active">
+						  							<div class="shop-item" style="width: 100% ! important;">
+							
+								<!-- Product Image -->
+								<div class="image">
+									<a href="page-product-details.html"><img src="http://placehold.it/300" alt="Item Name"></a>
+								</div>
+								<!-- Product Title -->
+								<div class="title">
+									<h3><a href="page-product-details.html">Lorem ipsum dolor</a></h3>
+								</div>
+								<!-- Product Price -->
+								<div class="price">
+									$999.99
+								</div>
+								<!-- Buy Button -->
+								<div class="actions">
+									<a href="page-product-details.html" class="btn btn-primary"><i class="icon-shopping-cart icon-white"></i> Buy</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+						  							<div class="shop-item" style="width: 100% ! important;">
+							
+								<!-- Product Image -->
+								<div class="image">
+									<a href="page-product-details.html"><img src="http://placehold.it/300" alt="Item Name"></a>
+								</div>
+								<!-- Product Title -->
+								<div class="title">
+									<h3><a href="page-product-details.html">Lorem ipsum dolor</a></h3>
+								</div>
+								<!-- Product Price -->
+								<div class="price">
+									$999.99
+								</div>
+								<!-- Buy Button -->
+								<div class="actions">
+									<a href="page-product-details.html" class="btn btn-primary"><i class="icon-shopping-cart icon-white"></i> Buy</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+						  							<div class="shop-item" style="width: 100% ! important;">
+							
+								<!-- Product Image -->
+								<div class="image">
+									<a href="page-product-details.html"><img src="http://placehold.it/300" alt="Item Name"></a>
+								</div>
+								<!-- Product Title -->
+								<div class="title">
+									<h3><a href="page-product-details.html">Lorem ipsum dolor</a></h3>
+								</div>
+								<!-- Product Price -->
+								<div class="price">
+									$999.99
+								</div>
+								<!-- Buy Button -->
+								<div class="actions">
+									<a href="page-product-details.html" class="btn btn-primary"><i class="icon-shopping-cart icon-white"></i> Buy</a>
+								</div>
+							</div>
+						</div>
+							</div>
+						</div>	
+						</div>
+							<!-- End Products Slider Item -->
+							<!-- Products Slider Item -->
+							<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">				
+							<div class="shop-item">
+							
+								<!-- Product Image -->
+								<!-- slides -->
+					  <div class="carousel-inner">
+						<div class="item active">
+						  							<div class="shop-item" style="width: 100% ! important;">
+							
+								<!-- Product Image -->
+								<div class="image">
+									<a href="page-product-details.html"><img src="http://placehold.it/300" alt="Item Name"></a>
+								</div>
+								<!-- Product Title -->
+								<div class="title">
+									<h3><a href="page-product-details.html">Lorem ipsum dolor</a></h3>
+								</div>
+								<!-- Product Price -->
+								<div class="price">
+									$999.99
+								</div>
+								<!-- Buy Button -->
+								<div class="actions">
+									<a href="page-product-details.html" class="btn btn-primary"><i class="icon-shopping-cart icon-white"></i> Buy</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+						  							<div class="shop-item" style="width: 100% ! important;">
+							
+								<!-- Product Image -->
+								<div class="image">
+									<a href="page-product-details.html"><img src="http://placehold.it/300" alt="Item Name"></a>
+								</div>
+								<!-- Product Title -->
+								<div class="title">
+									<h3><a href="page-product-details.html">Lorem ipsum dolor</a></h3>
+								</div>
+								<!-- Product Price -->
+								<div class="price">
+									$999.99
+								</div>
+								<!-- Buy Button -->
+								<div class="actions">
+									<a href="page-product-details.html" class="btn btn-primary"><i class="icon-shopping-cart icon-white"></i> Buy</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+						  							<div class="shop-item" style="width: 100% ! important;">
+							
+								<!-- Product Image -->
+								<div class="image">
+									<a href="page-product-details.html"><img src="http://placehold.it/300" alt="Item Name"></a>
+								</div>
+								<!-- Product Title -->
+								<div class="title">
+									<h3><a href="page-product-details.html">Lorem ipsum dolor</a></h3>
+								</div>
+								<!-- Product Price -->
+								<div class="price">
+									$999.99
+								</div>
+								<!-- Buy Button -->
+								<div class="actions">
+									<a href="page-product-details.html" class="btn btn-primary"><i class="icon-shopping-cart icon-white"></i> Buy</a>
+								</div>
+							</div>
+						</div>
+							</div>
+						</div>	
+						</div>
+							<!-- End Products Slider Item -->
+						</div>
+					</div>
+				</div>
+			</div>
+	    </div>
+
+	
+	        <div class="section" style="background-image: linear-gradient(to bottom, #F5F5F5 0%, #E8E8E8 100%);background-repeat: repeat-x; position:relative !important; z-index:100 !important;">
+	        <div class="container">
+	        	<div class="row">
+	        		<div class="col-md-3 col-sm-6">
+	        			<div class="service-wrapper">
+		        			<img src="img/service-icon/diamond.png" alt="Service Name">
+		        			<h3>Brilliant Look</h3>
+		        			<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames. <a href="#">Read more...</a></p>
+	        			</div>
+	        		</div>
+	        		<div class="col-md-3 col-sm-6">
+	        			<div class="service-wrapper">
+		        			<img src="img/service-icon/ruler.png" alt="Service Name">
+		        			<h3>Themeable</h3>
+		        			<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames. <a href="#">Read more...</a></p>
+		        		</div>
+	        		</div>
+	        		<div class="col-md-3 col-sm-6">
+	        			<div class="service-wrapper">
+		        			<img src="img/service-icon/box.png" alt="Service Name">
+		        			<h3>Features Rich</h3>
+		        			<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames. <a href="#">Read more...</a></p>
+		        		</div>
+	        		</div>
+	        		<div class="col-md-3 col-sm-6">
+	        			<div class="service-wrapper">
+		        			<img src="img/service-icon/diamond.png" alt="Service Name">
+		        			<h3>Brilliant Look</h3>
+		        			<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames. <a href="#">Read more...</a></p>
+	        			</div>
+	        		</div>
+	        	</div>
+	        </div>
+	    </div>
+	
+	<div id="footer">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6 col-lg-offset-3">
+					<p class="copyright">This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0. If a copy of the MPL was not distributed with this file, You can obtain one at http://mozilla.org/MPL/2.0/.</p>
+			</div>
+		</div>		
+	</div>	
+	</div>
+
+    <script src="assets/js/jquery-1.8.3.min.js"></script>
+	<script src="assets/js/jquery-1.9.1.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+
+		<script type="text/javascript" src="assets/js/jquery.sparkline.js" ></script>
+		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+	    <!--common script for all pages-->
+		 <script type="text/javascript" src="assets/js/scripts.js"></script>
+    <script type="text/javascript" src="assets/js/common-scripts.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript">
+    jQuery(function ($) {
+        $('.panel-heading span.clickable').on("click", function (e) {
+            if ($(this).hasClass('panel-collapsed')) {
+                // expand the panel
+                $(this).parents('.panel').find('.panel-body').slideDown();
+                $(this).removeClass('panel-collapsed');
+                $(this).find('i').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
+            }
+            else {
+                // collapse the panel
+                $(this).parents('.panel').find('.panel-body').slideUp();
+                $(this).addClass('panel-collapsed');
+                $(this).find('i').removeClass('glyphicon-chevron-up').addClass('glyphicon-chevron-down');
+            }
+        });
+    });
+</script>
+
+
+<script>
+function loadXMLDoc()
+{
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+    document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+    }
+  }
+xmlhttp.open("GET","@comments.txt",true);
+xmlhttp.send();
+}
+</script>
+
+  </body>
+</html>
